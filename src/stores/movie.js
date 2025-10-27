@@ -1,6 +1,7 @@
 import { reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 import api from '../plugins/axios';
+const ghibliID = import.meta.env.VITE_GHIBLI_COMPANY_ID
 
 export const useMovieStore = defineStore('movieStore', () => {
 
@@ -22,7 +23,7 @@ export const useMovieStore = defineStore('movieStore', () => {
 
   const getMovies = async(page) => {
     try{
-      const response = await api.get(`/discover/movie?with_companies=10342&language=pt-BR&page=${page}&sort_by=release_date.asc`);
+      const response = await api.get(`/discover/movie?with_companies=${ghibliID}&language=pt-BR&page=${page}&sort_by=release_date.asc`);
       state.movies = response.data.results;
       state.currentPage = response.data.page;
       state.pages = response.data.total_pages;
