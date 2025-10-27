@@ -10,7 +10,9 @@ onMounted(() => {
 </script>
 <template>
     <ul>
-        <li v-for="movie in movieStore.movies">
+        <li v-for="movie in movieStore.movies"
+            @click="movieStore.getDetail(movie.id)"
+        >
             <img 
                 :src="getImageUrl(movie.poster_path)" 
                 alt="movie_path"

@@ -21,20 +21,37 @@ export const useMovieStore = defineStore('movieStore', () => {
 
   const currentPage = computed(() => state.currentPage);
 
-  const getMovies = async(page) => {
+  const getMovies = async(page, genreId) => {
     try{
-      const response = await api.get(`/discover/movie?with_companies=${ghibliID}&language=pt-BR&page=${page}&sort_by=release_date.asc`);
-      state.movies = response.data.results;
-      state.currentPage = response.data.page;
-      state.pages = response.data.total_pages;
+      state.movies = [];
+      state.pages = 0;
+      state.currentPage = 1;
+
+      if(genreId) {
+        const response = await api.get(`/discover/movie?with_companies=${ghibliID}&page=${page}&sort_by=release_date.asc&with_genres=${genreId}`);
+        state.movies = response.data.results;
+        state.currentPage = response.data.page;
+        state.pages = response.data.total_pages;
+      } else {
+        const response = await api.get(`/discover/movie?with_companies=${ghibliID}&page=${page}&sort_by=release_date.asc`);
+        state.movies = response.data.results;
+        state.currentPage = response.data.page;
+        state.pages = response.data.total_pages;
+      }
     } catch(err){
       console.log(err);
     }
   }
-
+  
+  const getDetail = async(id) => {
+    const response = await api.get(`/movie/${id}`);
+    return response.data
+  }
+  
   return{
     movies,
     getMovies,
+    getDetail,
     pages,
     currentPage
   }
