@@ -27,7 +27,7 @@ export const useGenreStore = defineStore('genreStore', () => {
 
     const setCurrentGenre = (id) => {
         state.currentGenre = id;
-        movieStore.getMovies(1, id);
+        movieStore.getMovies(movieStore.currentPage, id);
     }
 
     watch(
