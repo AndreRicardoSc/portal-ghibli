@@ -1,4 +1,5 @@
 <script setup>
+    //EXEMPLO PARA PÁGINA DE ELENCO
     // const peopleDetails = ref([]);
     // onMounted( async() => {
     //     await castStore.getCast();
