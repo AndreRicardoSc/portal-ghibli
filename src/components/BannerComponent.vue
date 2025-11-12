@@ -1,15 +1,60 @@
 <script setup>
+    import { motion } from 'motion-v';
+    import { RouterLink } from 'vue-router';
     const props = defineProps(['title', 'subtitle', 'buttonText'])
 </script>
 <template>
     <section 
-        class="flex flex-col justify-center items-center gap-10 w-screen h-screen bg-center bg-no-repeat bg-cover bg-[url('/images/banner/background-banner.png')]"
+        class="flex justify-center items-center w-screen h-screen bg-center bg-no-repeat bg-cover bg-[url('/images/banner/background-banner.png')] md:items-start md:justify-start md:pt-40 md:pl-10"
     >
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/60"></div>
-        <div class="text-center flex flex-col gap-2">
-            <h1 class="text-5xl">{{ props.title }}</h1>
-            <p class="text-xl text-black/70">{{ props.subtitle }}</p>
+        <div class="flex flex-col items-center gap-10 z-10 md:items-start">
+            <div class="text-center flex flex-col gap-2 md:text-start">
+                <h1 class="font-bold text-5xl text-primary">{{ props.title }}</h1>
+                <p class="text-xl text-secondary">{{ props.subtitle }}</p>
+            </div>
+            <RouterLink to="/" class="text-2xl text-center bg-pink py-2 px-6 rounded-3xl max-w-100 border-2 border-transparent hover:bg-pink/30 hover:border-pink hover:t ext-pink transition-all duration-500 md:text-xl">
+                {{ props.buttonText }}
+            </RouterLink>
         </div>
-        <button class="text-2xl bg-pink-500 py-2 px-4 rounded-2xl max-w-70">{{ props.buttonText }}</button>
+        <div 
+            class="overflow-hidden"
+        >
+            <motion.img 
+                class="w-200 absolute object-cover" src="/images/banner/ponyo.png" alt="ponyo"
+                :initial="{
+                    translateX: -300,
+                    translateY: -300,
+                    opacity: 0
+                }"
+                :animate="{
+                    translateX: -150,
+                    translateY: 20,
+                    opacity: 1
+                }"
+                :transition="{
+                    duration: 1.8,
+                    ease: [0.34, 1.2, 0.64, 1]
+                }"
+            />
+            <motion.img 
+                class="w-200 absolute object-cover" src="/images/banner/sosuke.png" alt="sosuke"
+                :initial="{
+                    translateX: 200,
+                    translateY: 200,
+                    opacity: 0
+                }"
+                :animate="{
+                    translateX: -70,
+                    translateY: 50,
+                    opacity: 1
+                }"
+                :transition="{
+                    duration: 1.8,
+                    ease: [0.34, 1.2, 0.64, 1]
+                }"
+                
+            />
+        </div>
     </section>
 </template>
