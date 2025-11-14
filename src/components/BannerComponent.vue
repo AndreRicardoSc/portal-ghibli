@@ -1,6 +1,5 @@
 <script setup>
-    import { anticipate, motion } from 'motion-v';
-    import { RouterLink } from 'vue-router';
+    import {  motion } from 'motion-v';
     import ButtonComponent from './ButtonComponent.vue';
     const props = defineProps(['title', 'subtitle', 'buttonText']);
 
