@@ -6,7 +6,7 @@
 
     const button = {
         text: 'Conheça os Filmes!',
-        color: 'pink',
+        color: '#FF6F91',
         link: '/'
     }
 </script>
