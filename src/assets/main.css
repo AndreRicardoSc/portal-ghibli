@@ -8,3 +8,6 @@ html, body{
     overflow-x: hidden;
     scrollbar-width: none;
 }
+:root{
+    --pink: #FF6F91;
+}
