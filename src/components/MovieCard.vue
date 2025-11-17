@@ -1,16 +1,24 @@
 <script setup>
+    import { computed } from 'vue';
     import { motion } from 'motion-v';
 
-    import { useMovieStore } from '../stores/movie';
     import { useGenreStore } from '../stores/genre';
-    const movieStore = useMovieStore();
     const genreStore = useGenreStore();
 
-    const props = defineProps(['image', 'name', 'classification', 'genres']);
-
+    const props = defineProps(['image', 'name', 'classification', 'genres']);   
 </script>
 <template>
-    <motion.div class="flex flex-col w-70 items-center cursor-pointer border py-5 px-10 rounded-3xl md:max-h-96 md:min-h-96"
+    <motion.div :key="props.index" class="flex flex-col w-70 items-center cursor-pointer border py-5 px-10 rounded-3xl md:max-h-96 md:min-h-96"
+        :initial="{
+            translateY: 100,
+            filter: 'blur(5px)',
+            opacity: 0
+        }"
+        :while-in-view="{
+            translateY: 0,
+            opacity: 1,
+            filter: 'blur(0)'
+        }"
         :hover="{ scale: 1.05 }"
     >
         <img class="w-100 rounded-4xl md:w-40" 
