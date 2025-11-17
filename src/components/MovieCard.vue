@@ -1,7 +1,9 @@
 <script setup>
     import { motion } from 'motion-v';
 
+    import { useMovieStore } from '../stores/movie';
     import { useGenreStore } from '../stores/genre';
+    const movieStore = useMovieStore();
     const genreStore = useGenreStore();
 
     const props = defineProps(['image', 'name', 'classification', 'genres']);
@@ -17,14 +19,22 @@
         >
         <div class="flex flex-col items-center gap-5 my-4 md:items-start">
             <div class="flex gap-2 items-center">
-                <h3 class="text-2xl line-clamp-2 font-semibold text-start md:text-lg md:line-clamp-3">{{ props.name }}</h3>
-                <p class="flex gap-1 text-lg text-amber-500 md:text-sm">
+                <h3 class="text-2xl line-clamp-3 font-semibold text-start md:text-lg md:line-clamp-2">{{ props.name }}</h3>
+                <p class="flex gap-1 text-xl text-amber-500 md:text-sm">
                     <span class="mdi mdi-star"></span>
                     {{ props?.classification.toFixed(1).replace('.', ',') }}
                 </p>
             </div>
-            <ul class="flex flex-wrap gap-4 md:hidden">
-                <li class="border rounded-2xl py-1 px-2 md:text-xs" v-for="genreId in props.genres">
+            <ul class="w-full flex flex-wrap justify-start gap-4 md:hidden">
+                <li v-for="genreId in props.genres"
+                    class="text-lg bg-pink rounded-2xl py-2 px-3"
+                    @click="genreStore.setCurrentGenre(genreId)"
+                    :class="
+                        genreId == genreStore.currentGenre
+                        ? 'text-pink font-bold border-2 border-pink bg-white'
+                        : 'font-semibold border-none'
+                    "
+                >
                     {{ genreStore.getGenreName(genreId) }} 
                 </li>
             </ul>
