@@ -1,5 +1,13 @@
 @import "tailwindcss";
-@theme {
+@theme{
     --color-pink: #FF6F91;
+    --color-primary: #3B2C60;
+    --color-secondary: #6C6C8B;
 }
-
+html, body{
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+:root{
+    --pink: #FF6F91;
+}
