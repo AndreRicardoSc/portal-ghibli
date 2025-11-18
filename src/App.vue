@@ -7,8 +7,6 @@
     <HeaderComponents/>
   </header>
   <RouterView/>
-
-  
   <footer>
     <FooterComponents/>
   </footer>
