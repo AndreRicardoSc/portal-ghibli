@@ -12,7 +12,7 @@
     })
 </script>
 <template>
-    <ul class="flex flex-col items-center justify-center gap-20 md:flex-row md:flex-wrap md:gap-10">
+    <ul class="flex flex-col items-center justify-center gap-20 md:flex-row md:flex-wrap md:gap-10 bg-[url('/images/banner/background-banner.png')] bg-no-repeat bg-fixed bg-cover">
         <li v-for="(movie, index) in props.movieList" :key="index">
             <MovieCard 
                 :image="getImageUrl(movie?.poster_path)"
