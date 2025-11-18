@@ -37,7 +37,10 @@ export const useMovieStore = defineStore('movieStore', () => {
         state.movies = response.data.results;
         state.currentPage = response.data.page;
         state.pages = response.data.total_pages;
+        console.log(response.data.results)
       }
+
+
     } catch(err){
       console.log(err);
     }
