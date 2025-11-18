@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-
+import { motion } from 'motion-v';
 
 const pages = [
     {link: '/', name: 'Início'},
@@ -12,7 +12,10 @@ const pages = [
 </script>
 
 <template>
-        <div class="bg-black/80 text-white m-10 rounded-4xl shadow-xl">
+        <motion.div class="bg-black/80 text-white m-10 rounded-4xl shadow-xl fixed z-100"
+            :initial="{ scale: 0, opacity: 0 }"
+            :animate="{ scale: 1, opacity: 1 }"
+        >
             <nav class="flex justify-between">
                 <RouterLink to="/">
                     <img src="/images/logo-ghibli.png" alt="logo" class="w-15 h-20 ml-5 mt-0.5"></img>
@@ -26,7 +29,7 @@ const pages = [
                     </li>
                 </ul>
             </nav>
-        </div>
+        </motion.div>
 </template>
 <style scoped>
     .bar:hover {
