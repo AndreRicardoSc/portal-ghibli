@@ -1,9 +1,12 @@
 import { reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 import api from '../plugins/axios';
+import { useGenreStore } from './genre';
 const ghibliID = import.meta.env.VITE_GHIBLI_COMPANY_ID
 
 export const useMovieStore = defineStore('movieStore', () => {
+
+  const genreStore = useGenreStore();
 
   const state = reactive({
     movies: [],
@@ -51,11 +54,17 @@ export const useMovieStore = defineStore('movieStore', () => {
     return response.data
   }
   
+  const setCurrentPage = async(page) => {
+    state.currentPage = page;
+    getMovies(page, genreStore.currentGenre);
+  }
+
   return{
     movies,
     getMovies,
     getDetail,
     pages,
-    currentPage
+    currentPage,
+    setCurrentPage
   }
 })
