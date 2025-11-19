@@ -2,8 +2,7 @@
     import { onMounted } from 'vue';
     import ListComponent from '../components/ListComponent.vue';
     import TopPageComponent from '../components/TopPageComponent.vue';
-    import PagesComponent from '../components/PagesComponent.vue';
-    
+
     import { useGenreStore } from '../stores/genre';
     import { useMovieStore } from '../stores/movie';
 
@@ -31,5 +30,4 @@
     <ListComponent
         :movie-list="movieStore.movies"
     />
-    <PagesComponent/>
 </template>

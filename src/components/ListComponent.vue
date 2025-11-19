@@ -3,6 +3,7 @@
     import MovieCard from './MovieCard.vue';
     import getImageUrl from '../services/images';
     import { useGenreStore } from '../stores/genre';
+    import PagesComponent from './PagesComponent.vue';
     const genreStore = useGenreStore();
 
     const props = defineProps(['movieList']);
@@ -12,9 +13,9 @@
     })
 </script>
 <template>
-    <section class="bg-[url('/images/banner/background-banner.png')] bg-no-repeat bg-fixed bg-cover rounded-2xl py-20">
+    <section class="flex flex-col items-center bg-[url('/images/banner/background-banner.png')] bg-no-repeat bg-fixed bg-cover rounded-2xl py-20">
         <ul v-if="movieList && movieList?.length > 0" 
-            class="flex flex-col items-center justify-center gap-20 md:flex-row md:flex-wrap md:gap-10"
+            class="flex flex-col items-center justify-center gap-20 md:flex-row md:flex-wrap md:gap-10 mb-20"
         >
             <li v-for="(movie, index) in props.movieList" :key="index">
                 <MovieCard class=""
@@ -30,5 +31,6 @@
         >
             <h2 class="text-primary font-semibold text-4xl">Desculpe, nenhum item encontrado!</h2>
         </section>
+        <PagesComponent/>
     </section>
 </template>
