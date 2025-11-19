@@ -31,6 +31,6 @@
         >
             <h2 class="text-primary font-semibold text-4xl">Desculpe, nenhum item encontrado!</h2>
         </section>
-        <PagesComponent/>
+        <PagesComponent v-if="props.movieList.length > 0"/>
     </section>
 </template>
