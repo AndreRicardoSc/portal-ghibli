@@ -15,6 +15,7 @@ const pages = [
         <motion.div class="bg-black/80 text-white absolute w-full rounded-b-2xl shadow-xl z-100"
             :initial="{ scale: 0, opacity: 0 }"
             :animate="{ scale: 1, opacity: 1 }"
+            :transition="{ duration: 0.3 }"
         >
             <nav class="flex justify-between">
                 <RouterLink to="/">

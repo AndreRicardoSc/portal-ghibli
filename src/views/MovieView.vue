@@ -9,6 +9,7 @@
     const movieStore = useMovieStore();
 
     const topPage = {
+        icon: 'mdi mdi-movie-open-outline',
         title: 'Catálogo de Filmes',
         subtitle: 'Conheça o vasto acervo de filmes, podendo filtrar suas obras favoritas por gênero '
     }
@@ -21,6 +22,7 @@
 
 <template>
     <TopPageComponent
+        :icon="topPage.icon"
         :title="topPage.title"
         :subtitle="topPage.subtitle"
     />
