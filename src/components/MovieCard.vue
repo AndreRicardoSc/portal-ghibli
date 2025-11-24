@@ -11,16 +11,15 @@
 <template>
     <motion.div :key="props.index" class="flex flex-col w-70 border-white bg-black/60 cursor-pointer items-center justify-center px-5 py-5 rounded-3xl md:max-h-96 md:min-h-96"
         :initial="{
-            translateY: 100,
-            filter: 'blur(5px)',
             opacity: 0
         }"
-        :while-in-view="{
-            translateY: 0,
+        :animate="{
             opacity: 1,
-            filter: 'blur(0)'
         }"
-        :hover="{ scale: 1.05, opacity: 0.8 }"
+        :hover="{ scale: 1.05, opacity: 0.8, transition: { duration: 0.2 } }"
+        :transition="{
+            duration: 0.5
+        }"
     >
         <img class="w-100 rounded-4xl md:w-60 md:h-60 md:object-cover" 
             :src="getImageUrl(props.item?.poster_path)" 

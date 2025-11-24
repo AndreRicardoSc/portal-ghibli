@@ -4,7 +4,7 @@ import { motion } from 'motion-v';
 
 const pages = [
     {link: '/', name: 'Início'},
-    {link: '/', name: 'Filmes'},
+    {link: '/movies', name: 'Filmes'},
     {link: '/cast', name: 'Elenco'},
     {link: '/', name: 'Sobre Nós'},
 ]
@@ -12,16 +12,17 @@ const pages = [
 </script>
 
 <template>
-        <motion.div class="bg-black/80 text-white m-10 rounded-4xl shadow-xl fixed z-100"
+        <motion.div class="bg-black/80 text-white absolute w-full rounded-b-2xl shadow-xl z-100"
             :initial="{ scale: 0, opacity: 0 }"
             :animate="{ scale: 1, opacity: 1 }"
+            :transition="{ duration: 0.3 }"
         >
             <nav class="flex justify-between">
                 <RouterLink to="/">
-                    <img src="/images/logo-ghibli.png" alt="logo" class="w-15 h-20 ml-5 mt-0.5"></img>
+                    <img src="/images/logo-ghibli.png" alt="logo" class="w-15 h-20 ml-10 mt-0.5"></img>
                 </RouterLink>
-                <ul class="flex mr-30 mb-5 mt-5">
-                    <li v-for="item of pages" :key="item" class="ml-17 transition-all duration-500 rounded-2xl pr-4 pl-4 pt-2 pb-2 group">
+                <ul class="flex mr-10 mb-5 mt-5">
+                    <li v-for="item of pages" :key="item" class="transition-all duration-500 rounded-2xl px-4 py-2 group">
                         <RouterLink class="link" :to="item.link">{{ item.name }}</RouterLink>
                         <div
                             class="h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
