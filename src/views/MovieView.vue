@@ -2,6 +2,7 @@
     import { onMounted } from 'vue';
     import ListComponent from '../components/ListComponent.vue';
     import TopPageComponent from '../components/TopPageComponent.vue';
+    import MovieCard from '../components/MovieCard.vue';
 
     import { useGenreStore } from '../stores/genre';
     import { useMovieStore } from '../stores/movie';
@@ -28,6 +29,7 @@
         :subtitle="topPage.subtitle"
     />
     <ListComponent
-        :movie-list="movieStore.movies"
+        :items="movieStore.movies"
+        :card="MovieCard"
     />
 </template>
