@@ -1,12 +1,9 @@
 <script setup>
-  import HeaderComponents from './components/HeaderComponents.vue';
+import HeaderComponents from './components/HeaderComponents.vue'
 </script>
 <template>
-  <header class="relative">
-    <HeaderComponents/>
-  </header>
+  <HeaderComponents />
   <main>
-    <RouterView/>
+    <RouterView />
   </main>
 </template>
-
