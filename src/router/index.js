@@ -7,6 +7,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('@/views/HomeView.vue')
+    },
+    {
+      path: '/cast',
+      name: 'castPage',
+      component: () => import('@/views/CastView.vue')
     }
   ],
 })
