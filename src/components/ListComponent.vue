@@ -37,14 +37,14 @@
         </section>
         <PagesComponent v-if="items.length > 0 && props.mode == 'list'"/>
         <div v-else-if="props.mode == 'pass'" class="flex gap-5 bg-black/60 p-4 rounded-lg">
-            <button class="text-2xl bg-pink px-4 py-3 rounded-full" @click="castStore.setPage(castStore.currentPage - 1)">
+            <button class="text-2xl bg-pink border border-pink px-4 py-3 rounded-full cursor-pointer hover:bg-white transition-all durt" @click="castStore.setPage(castStore.currentPage - 1)">
                 <span class="mdi mdi-chevron-double-left"></span>
             </button>
             <div class="text-center text-white">
                 <p class="text-2xl md:texl-lg">Página:</p>
-                <p class="text-2xl md:text-lg">{{ castStore.currentPage }}</p>
+                <p class="text-2xl md:text-2xl">{{ castStore.currentPage }}</p>
             </div>
-            <button class="text-2xl bg-pink px-4 py-3 rounded-full" @click="castStore.setPage(castStore.currentPage + 1)">
+            <button class="text-2xl bg-pink border border-pink px-4 py-3 rounded-full cursor-pointer hover:bg-white transition-all durt" @click="castStore.setPage(castStore.currentPage + 1)">
                 <span class="mdi mdi-chevron-double-right"></span>
             </button>
         </div>
