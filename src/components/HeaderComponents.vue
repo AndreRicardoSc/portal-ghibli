@@ -5,7 +5,7 @@ import { motion } from 'motion-v';
 const pages = [
     {link: '/', name: 'Início'},
     {link: '/movies', name: 'Filmes'},
-    {link: '/', name: 'Elenco'},
+    {link: '/cast', name: 'Elenco'},
     {link: '/', name: 'Sobre Nós'},
 ]
 

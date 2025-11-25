@@ -9,19 +9,38 @@ export const useCastStore = defineStore('castStore', () => {
   const state = reactive({
     people: [],
     isLoading: false,
+    currentPage: 1,
+    pageSize: 20,
   });
 
   const people = computed(() => state.people);
   const isLoading = computed(() => state.isLoading);
 
+  const paginatedPeople = computed(() => {
+
+    const start = (state.currentPage -1) * state.pageSize;
+    const end = start + state.pageSize;
+
+    return state.people.slice(start, end);
+  })
+
+  const totalPages = computed(() => {
+    return Math.ceil(state.people.length / state.pageSize);
+  })
+
+  const currentPage = computed(() => state.currentPage);
+
+  const setPage = (page) => {
+    if(page >= 1 && page <= totalPages.value){
+      state.currentPage = page;
+    }
+  }
+
   const getCast = async () => {
     try {
-      if (movieStore.movies.length === 0) {
-        await movieStore.getMovies(1);
-      }
+      await movieStore.getAllMovies();
 
-      state.isLoading = true;
-      const allPeople = new Set();
+      const allPeople = new Map();
 
       const requests = movieStore.movies.map(movie =>
         api.get(`/movie/${movie.id}/credits`)
@@ -31,11 +50,13 @@ export const useCastStore = defineStore('castStore', () => {
 
       for (const res of responses) {
         for (const person of res.data.cast) {
-          allPeople.add(person.id)
+          if(!allPeople.has(person.id)){
+            allPeople.set(person.id, person)
+          }
         }
       }
 
-      state.people = [...allPeople];
+      state.people = [...allPeople.values()];
     } catch (err) {
       console.error('Erro ao buscar elenco:', err);
     } finally {
@@ -58,6 +79,10 @@ export const useCastStore = defineStore('castStore', () => {
 
   return {
     people,
+    paginatedPeople,
+    totalPages,
+    currentPage,
+    setPage,
     getCast,
     getDetail,
     isLoading,
