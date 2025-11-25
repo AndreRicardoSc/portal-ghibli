@@ -1,28 +1,27 @@
 <script setup>
-    import { computed } from 'vue';
+    import { useRouter } from 'vue-router';
     import { motion } from 'motion-v';
     import getImageUrl from '../services/images';
 
     import { useGenreStore } from '../stores/genre';
     const genreStore = useGenreStore();
 
-    const props = defineProps(['item']);   
+    const props = defineProps(['item']);
+    
+    const router = useRouter();
 </script>
 <template>
-    <motion.div :key="props.index" class="flex flex-col w-70 border-white bg-black/60 cursor-pointer items-center justify-center px-5 py-5 rounded-3xl md:max-h-96 md:min-h-96"
-        :initial="{
-            opacity: 0
-        }"
-        :animate="{
-            opacity: 1,
-        }"
+    <motion.div
+        class="flex flex-col w-70 border-white bg-black/60 cursor-pointer items-center justify-center px-5 py-5 rounded-3xl md:max-h-96 md:min-h-96"
+        @click="router.push({ name: 'movieDetail', params: { id: props.item?.id } })" 
+        :key="props.item?.id" 
+        :initial="{ opacity: 0 }"
+        :animate="{ opacity: 1 }"
         :hover="{ scale: 1.05, opacity: 0.8, transition: { duration: 0.2 } }"
-        :transition="{
-            duration: 0.5
-        }"
+        :transition="{ duration: 0.5 }"
     >
         <img class="w-100 rounded-4xl md:w-60 md:h-60 md:object-cover" 
-            :src="getImageUrl(props.item?.poster_path)" 
+            :src="getImageUrl(props.item?.poster_path, 'w500')" 
             :alt="`${props.item?.title}-image`"
         >
         <div class="flex flex-col items-center gap-5 my-4 md:items-start">

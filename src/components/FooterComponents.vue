@@ -6,7 +6,7 @@
     ]
 </script>
 <template>
-    <div class="bg-black/80 text-white mx-10 rounded-t-4xl mt-20">
+    <div class="bg-black/80 text-white rounded-t-4xl mt-20">
         <ul class="flex justify-center text-4xl mb-6 pt-10 gap-5">
             <li v-for="icon in icons">
                 <span :class="icon.class"></span>
