@@ -6,9 +6,10 @@
   <header>
     <HeaderComponents/>
   </header>
-  <RouterView/>
+  <main>
+    <RouterView />
+  </main>
   <footer>
     <FooterComponents/>
   </footer>
 </template>
-
