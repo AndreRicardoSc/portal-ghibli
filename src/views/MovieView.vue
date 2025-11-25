@@ -27,5 +27,6 @@
     <ListComponent
         :items="movieStore.movies"
         :card="MovieCard"
+        mode="list"
     />
 </template>
