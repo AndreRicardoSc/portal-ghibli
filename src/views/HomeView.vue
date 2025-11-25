@@ -24,5 +24,8 @@
         :subtitle="banner.subtitle"
         :button-text="banner.buttonText"
     />
-    <section class="h-screen"> </section>
+    <div>
+        <h1 class="flex justify-center text-2xl">Personagens Icônicos</h1>
+        
+    </div>
 </template>

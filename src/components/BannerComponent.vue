@@ -4,7 +4,6 @@
     const props = defineProps(['title', 'subtitle', 'buttonText']);
 
     const button = {
-        text: 'Conheça os Filmes!',
         color: 'var(--pink)',
         link: '/'
     }
@@ -39,7 +38,7 @@
                 :transition="{ duration: 1, ease: 'anticipate', delay: 1 }"
             >
                 <ButtonComponent
-                    :button-text="button.text"
+                    :button-text="props.buttonText"
                     :color="button.color"
                     :link="button.link"
                 />
