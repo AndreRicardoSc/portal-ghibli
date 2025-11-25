@@ -9,10 +9,32 @@ export const useCastStore = defineStore('castStore', () => {
   const state = reactive({
     people: [],
     isLoading: false,
+    currentPage: 1,
+    pageSize: 20,
   });
 
   const people = computed(() => state.people);
   const isLoading = computed(() => state.isLoading);
+
+  const paginatedPeople = computed(() => {
+
+    const start = (state.currentPage -1) * state.pageSize;
+    const end = start + state.pageSize;
+
+    return state.people.slice(start, end);
+  })
+
+  const totalPages = computed(() => {
+    return Math.ceil(state.people.length / state.pageSize);
+  })
+
+  const currentPage = computed(() => state.currentPage);
+
+  const setPage = (page) => {
+    if(page >= 1 && page <= totalPages.value){
+      state.currentPage = page;
+    }
+  }
 
   const getCast = async () => {
     try {
@@ -57,6 +79,10 @@ export const useCastStore = defineStore('castStore', () => {
 
   return {
     people,
+    paginatedPeople,
+    totalPages,
+    currentPage,
+    setPage,
     getCast,
     getDetail,
     isLoading,

@@ -20,7 +20,8 @@
         subtitle="Conheça todos os reais protagonistas dessas histórias incríveis criadas e que merecem total reconhecimento por seu árduo trabalho."
     />
     <ListComponent
-        :items="castStore.people"
+        :items="castStore.paginatedPeople"
         :card="CastCard"
+        mode="pass"
     />
 </template>
