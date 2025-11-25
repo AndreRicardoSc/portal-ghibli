@@ -1,5 +1,14 @@
 @import "tailwindcss";
-@layer base {
-    
+@theme{
+    --color-pink: #FF6F91;
+    --color-primary: #3B2C60;
+    --color-secondary: #6C6C8B;
+    --color-sky: #8BD3F9;
 }
-
+html, body{
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+:root{
+    --pink: #FF6F91;
+}
