@@ -16,12 +16,9 @@ export const useCastStore = defineStore('castStore', () => {
 
   const getCast = async () => {
     try {
-      if (movieStore.movies.length === 0) {
-        await movieStore.getMovies(1);
-      }
+      await movieStore.getAllMovies();
 
-      state.isLoading = true;
-      const allPeople = new Set();
+      const allPeople = new Map();
 
       const requests = movieStore.movies.map(movie =>
         api.get(`/movie/${movie.id}/credits`)
@@ -31,11 +28,13 @@ export const useCastStore = defineStore('castStore', () => {
 
       for (const res of responses) {
         for (const person of res.data.cast) {
-          allPeople.add(person.id)
+          if(!allPeople.has(person.id)){
+            allPeople.set(person.id, person)
+          }
         }
       }
 
-      state.people = [...allPeople];
+      state.people = [...allPeople.values()];
     } catch (err) {
       console.error('Erro ao buscar elenco:', err);
     } finally {
