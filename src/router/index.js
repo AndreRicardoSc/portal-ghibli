@@ -39,6 +39,18 @@ const router = createRouter({
           props: true
         }
       ]
+    },
+    {
+      path: '/cast/:id',
+       component: WithOutFooter,
+       children: [
+         {
+           path: '',
+           name: 'castDetail',
+           component: () => import('@/views/CastDetailView.vue'),
+           props: true
+         }
+       ]
     }
   ]
 })
