@@ -1,20 +1,20 @@
 import { defineStore } from "pinia";
 import { computed, reactive } from "vue";
 import { useMovieStore } from "./movie";
+import { useLoadingStore } from "./loading";
 import api from "../plugins/axios";
 
 export const useCastStore = defineStore('castStore', () => {
   const movieStore = useMovieStore();
+  const loadingStore = useLoadingStore();
 
   const state = reactive({
     people: [],
-    isLoading: false,
     currentPage: 1,
     pageSize: 20,
   });
 
   const people = computed(() => state.people);
-  const isLoading = computed(() => state.isLoading);
 
   const paginatedPeople = computed(() => {
 
@@ -38,6 +38,8 @@ export const useCastStore = defineStore('castStore', () => {
 
   const getCast = async () => {
     try {
+      loadingStore.setLoading(true);
+
       await movieStore.getAllMovies();
 
       const allPeople = new Map();
@@ -60,20 +62,20 @@ export const useCastStore = defineStore('castStore', () => {
     } catch (err) {
       console.error('Erro ao buscar elenco:', err);
     } finally {
-      state.isLoading = false;
+      loadingStore.setLoading(false);
     }
   };
 
   const getDetail = async(id) => {
     try{
-      state.isLoading = true
+      loadingStore.setLoading(true);
       const response = await api.get(`/person/${id}`);
       console.log(response.data)
       return response.data;
     } catch(err){
       console.log(err);
     } finally{
-      state.isLoading = false;
+      loadingStore.setLoading(false);
     }
   }
 
@@ -85,6 +87,5 @@ export const useCastStore = defineStore('castStore', () => {
     setPage,
     getCast,
     getDetail,
-    isLoading,
   };
 }); 

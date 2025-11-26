@@ -4,7 +4,7 @@ import { Motion, motion } from "motion-v";
 
 <template>
   <div 
-    class="fixed inset-0 flex items-center justify-center z-200"
+    class="fixed inset-0 flex items-center justify-center z-50"
     style="
       background: linear-gradient(120deg, #1a1a1a, #2b2d33, #1a1a1a);
       background-size: 200% 200%;
