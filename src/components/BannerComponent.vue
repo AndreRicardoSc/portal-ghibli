@@ -6,7 +6,7 @@
     const button = {
         text: 'Conheça os Filmes!',
         color: 'var(--pink)',
-        link: '/'
+        link: '/movies'
     }
 </script>
 <template>
