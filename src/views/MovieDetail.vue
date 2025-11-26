@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import getImageUrl from '../services/images';
+import { getFormatedTime } from '../services/time';
+import MovieDetailComponent from '../components/MovieDetailComponent.vue';
 import { useMovieStore } from '../stores/movie';
 
 const movieStore = useMovieStore();
@@ -24,7 +26,7 @@ const backgroundStyle = computed(() => {
                 to bottom, 
                 rgba(0,0,0,0) 0%,
                 rgba(0,0,0,0) 30%, 
-                #FF6F91 100%
+                #ffffff 100%
             ),
             url(${getImageUrl(movie.value.backdrop_path, 'original')})
         `,
@@ -35,14 +37,19 @@ const backgroundStyle = computed(() => {
 </script>
 
 <template>
-    <section class="h-screen flex flex-col justify-center px-30" :style="backgroundStyle">
+    <section class="h-screen flex flex-col justify-end px-30" :style="backgroundStyle">
         
-        <div>
-            <h1>{{ movie.title }}</h1>
-            <ul>
-                <li>{{ movie.release_date }}</li>
-            </ul>
-        </div>
+        <MovieDetailComponent
+            :title="movie?.title"
+            :subtitle="movie?.tagline"
+            :date="movie?.release_date"
+            :duration="getFormatedTime(movie?.runtime)"
+            :language="movie?.spoken_languages[0]?.english_name"
+            :poster="getImageUrl(movie?.poster_path, 'w500')"
+            :genres="movie?.genres"
+            :overview="movie?.overview"
+            :rating="movie?.vote_average"
+        />
 
     </section>
 </template>
