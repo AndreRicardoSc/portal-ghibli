@@ -1,13 +1,15 @@
 <script setup>
     import { motion } from 'motion-v';
     import { computed } from 'vue';
-import RatingComponent from './RatingComponent.vue';
+    import getImageUrl from '../services/images';
+    import RatingComponent from './RatingComponent.vue';
     const props = defineProps({
         title: String,
         subtitle: String,
         date: String,
         duration: String,
         language: String,
+        companies: Array,
         poster: String,
         genres: Array,
         overview: String,
@@ -28,16 +30,22 @@ import RatingComponent from './RatingComponent.vue';
         :animate="{ y: 0, opacity: 1 }"
         :transition="{ duration: 0.5 }"
     >
-        <div class="flex flex-col gap-4 border-b py-10">
-            <div class="w-full flex flex-col items-center text-center">
-                <h1 class="text-4xl">{{ props?.title }}</h1>
-                <h2 class="text-lg text-white/70">{{ props?.subtitle }}</h2>
-                
+        <div class="flex justify-between border-b py-10">
+            <div class="flex flex-col gap-4">
+                <div class="w-full flex flex-col items-start text-start">
+                    <h1 class="text-4xl">{{ props?.title }}</h1>
+                    <h2 class="text-lg text-white/70">{{ props?.subtitle }}</h2>
+                </div>
+                <ul class="flex justify-center gap-5">
+                    <li>{{ props?.date }}</li> 
+                    | <li>{{ props?.duration }}</li>
+                    | <li>Idioma: {{ props?.language }}</li>
+                </ul>
             </div>
-            <ul class="flex justify-center gap-5">
-                <li>{{ props?.date }}</li> 
-                | <li>{{ props?.duration }}</li>
-                | <li>Idioma: {{ props?.language }}</li>
+            <ul class="flex justify-center items-center gap-5 py-5">
+                <li v-for="company in props?.companies">
+                    <img v-if="company?.logo_path" class="w-20 invert" :src="getImageUrl(company?.logo_path)" :alt="company?.name">
+                </li>
             </ul>
         </div>
         <div class="flex items-start gap-15 py-5">

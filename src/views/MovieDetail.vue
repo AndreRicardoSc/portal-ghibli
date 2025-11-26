@@ -45,6 +45,7 @@ const backgroundStyle = computed(() => {
             :date="movie?.release_date"
             :duration="getFormatedTime(movie?.runtime)"
             :language="movie?.spoken_languages[0]?.english_name"
+            :companies="movie?.production_companies"
             :poster="getImageUrl(movie?.poster_path, 'w500')"
             :genres="movie?.genres"
             :overview="movie?.overview"
