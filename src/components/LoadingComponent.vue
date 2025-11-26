@@ -16,7 +16,7 @@ import { Motion, motion } from "motion-v";
       class="relative w-40 h-40 flex items-center justify-center"
       :initial="{ rotate: 0, scale: 0.8 }"
       :animate="{ rotate: 360, scale: 1 }"
-      :transition="{ duration: 1, repeat: Infinity, ease: 'linear' }"
+      :transition="{ duration: 2, repeat: Infinity, repeatType: 'reverse' }"
     >
 
       <div class="absolute w-full h-full">
