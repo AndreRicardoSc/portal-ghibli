@@ -23,7 +23,11 @@ import RatingComponent from './RatingComponent.vue';
     });
 </script>
 <template>
-    <motion.div class="text-white bg-black/70 rounded-t-lg px-20">
+    <motion.div class="text-white bg-black/70 rounded-t-lg px-20"
+        :initial="{ y: 300, opacity: 0 }"
+        :animate="{ y: 0, opacity: 1 }"
+        :transition="{ duration: 0.5 }"
+    >
         <div class="flex flex-col gap-4 border-b py-10">
             <div class="w-full flex flex-col items-center text-center">
                 <h1 class="text-4xl">{{ props?.title }}</h1>
