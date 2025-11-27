@@ -22,23 +22,18 @@
         {
             name: 'Ponyo',
             description: 'Ela é uma pequena criatura mágica semelhante a um peixe-dourado, filha de uma deusa do mar e de um feiticeiro humano.',
-            image: '/images/banner/CharacterPonyo.jpg'
+            image: '/images/banner/ponyo.jpg'
         },
         {
             name: 'Totoro',
             description: 'Totoro é uma criatura mágica e gentil que vive na floresta. Grande, peludo e com aparência fofa, ele simboliza a natureza, a imaginação e o conforto infantil.',
-            image: '/images/banner/TOTORO.jpg'
+            image: '/images/banner/totoro.jpg'
         },
         {
             name: 'Kiki',
             description: 'Kiki é uma jovem bruxa que se muda para uma cidade para começar sua vida como entregadora de cartas. Ela é independente, corajosa e cheia de personalidade.',
-            image: '/images/banner/KIKI.jpg'
+            image: '/images/banner/kiki.jpg'
         },
-        {
-            name: 'Mononoke',
-            description: 'Mononoke é um espírito da floresta que representa a natureza e a vida selvagem. Ela é uma figura misteriosa e poderosa, muitas vezes associada a eventos catastróficos.',
-            image: '/images/banner/MONONOKE.jpg'
-        }
     ]
 </script>
 <template>
