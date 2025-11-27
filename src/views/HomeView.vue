@@ -30,9 +30,9 @@
             image: '/images/banner/totoro.jpg'
         },
         {
-            name: 'Kiki',
-            description: 'Kiki é uma jovem bruxa que se muda para uma cidade para começar sua vida como entregadora de cartas. Ela é independente, corajosa e cheia de personalidade.',
-            image: '/images/banner/kiki.jpg'
+            name: 'Haku',
+            description: 'Haku é um garoto misterioso, que também possui a forma de um dragão branco. Inteligente, leal e enigmático.',
+            image: '/images/banner/haku.jpg'
         },
     ]
 </script>
