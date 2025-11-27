@@ -38,7 +38,6 @@ export const useCastStore = defineStore('castStore', () => {
 
   const getCast = async () => {
     try {
-      loadingStore.setLoading(true);
 
       await movieStore.getAllMovies();
 
@@ -61,8 +60,6 @@ export const useCastStore = defineStore('castStore', () => {
       state.people = [...allPeople.values()];
     } catch (err) {
       console.error('Erro ao buscar elenco:', err);
-    } finally {
-      loadingStore.setLoading(false);
     }
   };
 

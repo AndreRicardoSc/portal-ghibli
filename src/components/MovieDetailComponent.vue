@@ -2,6 +2,7 @@
     import { motion } from 'motion-v';
     import { computed } from 'vue';
     import getImageUrl from '../services/images';
+    import formatDate from '../services/data';
     import RatingComponent from './RatingComponent.vue';
     const props = defineProps({
         title: String,
@@ -36,8 +37,8 @@
                     <h1 class="text-4xl">{{ props?.title }}</h1>
                     <h2 class="text-lg text-white/70">{{ props?.subtitle }}</h2>
                 </div>
-                <ul class="flex justify-center gap-5">
-                    <li>{{ props?.date }}</li> 
+                <ul class="flex justify-start gap-5">
+                    <li>{{ formatDate(props?.date) }}</li> 
                     | <li>{{ props?.duration }}</li>
                     | <li>Idioma: {{ props?.language }}</li>
                 </ul>
