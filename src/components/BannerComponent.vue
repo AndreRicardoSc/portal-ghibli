@@ -48,7 +48,7 @@
             class="overflow-hidden"
         >
             <motion.img 
-                class="w-200 absolute object-cover drop-shadow-2xl hidden md:block" src="/images/banner/ponyo.png" alt="ponyo"
+                class="w-200 absolute object-cover drop-shadow-2xl hidden md:block" src="/images/banner/ponyo-plaining.png" alt="ponyo"
                 :initial="{ translateX: -300, translateY: -300, opacity: 0 }"
                 :animate="{ translateX: -150, translateY: 20, opacity: 1 }"
                 :transition="{ duration: 1.8, ease: [0.2, 1.25, 0.5, 1] }"
