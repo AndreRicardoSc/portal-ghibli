@@ -1,4 +1,5 @@
 <script setup>
+    import { motion } from 'motion-v';
     import { useRouter } from 'vue-router';
 
     const props = defineProps({
@@ -12,7 +13,13 @@
 </script>
 
 <template>
-    <div class="flex flex-col items-center gap-5 cursor-pointer w-100" @click="navigateToCharacter">
+    <motion.div 
+        class="flex flex-col items-center gap-5 cursor-pointer w-100"               
+        @click="navigateToCharacter"
+        :initial="{ opacity: 0, scale: 0.5 }"
+        :while-in-view="{ opacity: 1, scale: 1 }"
+        :transition="{ duration: 0.5, delay: 0.2 }"
+    >
         <div class="flex flex-col items-center justify-center rounded-full w-60 h-60"
             :style="{
                 backgroundColor: props.character.backgroundColor,
@@ -22,7 +29,7 @@
         </div>
         <div class="flex flex-col items-center gap-2">
             <h2 class="text-primary text-3xl font-light">{{ props.character.name }}</h2>
-            <p class="text-secondary text-md text-justify">{{ props.character.description }}</p>
+            <p class="text-secondary text-lg text-justify">{{ props.character.description }}</p>
         </div>
-    </div>
+    </motion.div>
 </template>
