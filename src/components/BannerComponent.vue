@@ -5,7 +5,7 @@
 
     const button = {
         color: 'var(--pink)',
-        link: '/'
+        link: '/movies'
     }
 </script>
 <template>

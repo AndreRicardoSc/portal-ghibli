@@ -1,9 +1,9 @@
 <script setup>
-import HeaderComponents from './components/HeaderComponents.vue'
+  import LoadingComponent from './components/LoadingComponent.vue';
+  import { useLoadingStore } from './stores/loading';
+  const loadingStore = useLoadingStore();
 </script>
 <template>
-  <HeaderComponents />
-  <main>
-    <RouterView />
-  </main>
+  <LoadingComponent v-if="loadingStore.isLoading"/>
+  <RouterView/>
 </template>

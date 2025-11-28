@@ -1,12 +1,13 @@
 import { defineStore } from "pinia";
 import { computed, reactive } from "vue";
 import { useMovieStore } from "./movie";
-import { watch } from "vue";
+import { useLoadingStore } from "./loading";
 import api from "../plugins/axios";
 
 export const useGenreStore = defineStore('genreStore', () => {
 
     const movieStore = useMovieStore();
+    const loadingStore = useLoadingStore();
 
     const state = reactive({
         genres: [],
@@ -17,8 +18,10 @@ export const useGenreStore = defineStore('genreStore', () => {
     const currentGenre = computed(() => state.currentGenre);
 
     const getGenres = async() => {
+        loadingStore.setLoading(true);
         const response = await api.get('genre/movie/list?');
         state.genres = response.data.genres;
+        loadingStore.setLoading(false);
     }
 
     const setCurrentGenre = (id) => {
