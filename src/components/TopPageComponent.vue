@@ -8,12 +8,12 @@
     });
 </script>
 <template>
-    <section class="flex items-center justify-center gap-20 pt-40 md:pt-30 pb-20 shadow-xl px-10 md:px-30">
+    <section class="flex items-center justify-center gap-20 pt-40 md:pt-30 pb-20 px-10 md:px-30">
         <div class="flex flex-col gap-5 md:gap-2"
             :class="
                 props.list
                 ? 'text-justify'
-                : 'text-center items-center md:px-40 md:gap-3'
+                : 'text-center items-center md:px-40 md:gap-3 md:pt-10'
             "
         >
             <motion.h1 class="flex items-center gap-5 md:items-end text-primary text-3xl md:text-4xl font-semibold">
