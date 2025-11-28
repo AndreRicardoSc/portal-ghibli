@@ -14,10 +14,10 @@
 
 <template>
     <motion.div 
-        class="flex flex-col items-center gap-5 cursor-pointer w-100"               
+        class="flex flex-col items-center gap-5 cursor-pointer w-80 p-10 rounded-lg hover:shadow-lg"               
         @click="navigateToCharacter"
-        :initial="{ opacity: 0, scale: 0.5 }"
-        :while-in-view="{ opacity: 1, scale: 1 }"
+        :initial="{ opacity: 0 }"
+        :while-in-view="{ opacity: 1 }"
         :transition="{ duration: 0.5, delay: 0.2 }"
     >
         <div class="flex flex-col items-center justify-center rounded-full w-60 h-60"

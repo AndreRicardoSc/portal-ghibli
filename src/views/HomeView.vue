@@ -68,21 +68,20 @@
             </li>
         </ul>
     </section>
-    <div class="max-w-2xl mx-auto py-10 ">
-    <h2 class="text-3xl font-bold text-center mb-10 text-secondary">
-        Linha do Tempo — Obras Mais Relevantes
-    </h2>
-    <div class="border-l-4 border-blue-300 pl-6 space-y-8">
-        
-        <TimeLineComponent
-            v-for="movie in movieStore.movies"
-            :key="movie.id"
-            :movie="movie"
-        />
+    <div class="flex flex-col mx-auto max-w-2xl py-10 gap-20">
+        <h2 class="text-3xl font-bold text-center mb-10 text-secondary">
+            Linha do Tempo — Obras Mais Relevantes
+        </h2>
+        <div class="border-l-4 border-blue-300 pl-6 space-y-8">
+            
+            <TimeLineComponent
+                v-for="movie in movieStore.movies"
+                :key="movie.id"
+                :movie="movie"
+            />
 
+        </div>
     </div>
-</div>
-
 </template>
     
 
