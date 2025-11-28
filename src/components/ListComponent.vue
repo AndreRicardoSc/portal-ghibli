@@ -24,7 +24,7 @@
 </script>
 <template>
     
-    <section class="flex flex-col items-center bg-[url('/images/banner/background-banner.png')] bg-no-repeat bg-fixed bg-cover rounded-2xl py-20">
+    <section class="flex flex-col items-center bg-[url('/images/banner/background-banner.png')] bg-no-repeat bg-fixed bg-cover rounded-2xl py-20 mx-10">
         <ul v-if="items.length > 0" class="flex flex-col items-center justify-center gap-20 mb-10 md:flex-row md:flex-wrap md:gap-10 bg-[url('/images/banner/background-banner.png')] bg-no-repeat bg-fixed bg-cover">
             <li v-for="(item, index) in props.items" :key="index">
                 <component :is="props.card" :item="item"/>

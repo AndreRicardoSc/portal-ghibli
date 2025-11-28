@@ -6,7 +6,6 @@ const pages = [
     {link: '/', name: 'Início'},
     {link: '/movies', name: 'Filmes'},
     {link: '/cast', name: 'Elenco'},
-    {link: '/', name: 'Sobre Nós'},
 ]
 
 </script>
