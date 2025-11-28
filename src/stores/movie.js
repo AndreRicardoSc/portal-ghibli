@@ -93,6 +93,19 @@ export const useMovieStore = defineStore('movieStore', () => {
     return response.data
   }
   
+  const getMovieTimeLine = async() => {
+    const response = await api.get(`/discover/movie?with_companies=${ghibliID}&sort_by=popularity.desc`);
+    const first10 = response.data.results.slice(0, 10);
+
+    const ordered = first10.sort((a, b) => {
+      const dateA = new Date(a.release_date);
+      const dateB = new Date(b.release_date);
+      return dateA - dateB;
+    });
+    
+    state.movies = ordered;
+  }
+
   const setCurrentPage = async(page) => {
     state.currentPage = page;
     getMovies(page, genreStore.currentGenre);
@@ -101,6 +114,7 @@ export const useMovieStore = defineStore('movieStore', () => {
   return{
     movies,
     getMovies,
+    getMovieTimeLine,
     getAllMovies,
     getDetail,
     pages,
