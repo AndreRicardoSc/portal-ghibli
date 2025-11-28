@@ -30,7 +30,7 @@ export const useGenreStore = defineStore('genreStore', () => {
     }
 
     const getGenreName = (id) => {
-        return genres.value.find(genre => genre.id == id).name
+        return genres.value.find(genre => genre.id == id)?.name
     }
 
     return {
