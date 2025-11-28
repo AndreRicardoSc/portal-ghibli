@@ -14,7 +14,7 @@
 
 <template>
     <motion.div 
-        class="flex flex-col items-center gap-5 cursor-pointer w-80 p-10 rounded-lg hover:shadow-lg"               
+        class="flex flex-col items-center gap-5 cursor-pointer w-80 p-10 rounded-lg hover:shadow-lg transition-all duration-300"               
         @click="navigateToCharacter"
         :initial="{ opacity: 0 }"
         :while-in-view="{ opacity: 1 }"

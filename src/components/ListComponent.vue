@@ -36,7 +36,7 @@
             <h2 class="text-primary font-semibold text-4xl">Desculpe, nenhum item encontrado!</h2>
         </section>
         <PagesComponent v-if="items.length > 0 && props.mode == 'list'"/>
-        <div v-else-if="props.mode == 'pass'" class="flex gap-5 bg-black/60 p-4 rounded-lg">
+        <div v-else-if="items.length > 0 && props.mode == 'pass'" class="flex gap-5 bg-black/60 p-4 rounded-lg">
             <button class="text-2xl bg-pink border border-pink px-4 py-3 rounded-full cursor-pointer hover:bg-white transition-all durt" @click="castStore.setPage(castStore.currentPage - 1)">
                 <span class="mdi mdi-chevron-double-left"></span>
             </button>
