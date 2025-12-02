@@ -15,7 +15,6 @@ const movie = ref(null);
 
 onMounted(async () => {
     movie.value = await movieStore.getDetail(props.id);
-    console.log(movie.value)
 });
 
 const backgroundStyle = computed(() => {

@@ -14,7 +14,6 @@
 
     onMounted(async () => {
         cast.value = await castStore.getDetail(props.id);
-        console.log(getImageUrl(cast.value.profile_path))
     });
 </script>
 <template>

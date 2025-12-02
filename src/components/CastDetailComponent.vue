@@ -1,7 +1,6 @@
 <script setup>
     import { motion } from 'motion-v';
     import getImageUrl from '../services/images';
-import { onMounted } from 'vue';
 
     const props = defineProps({
         name: String,
@@ -15,9 +14,6 @@ import { onMounted } from 'vue';
         also_known_as: Array,
     });
 
-    onMounted(() => {
-        console.log(props?.profile_path)
-    })
 </script>
 <template>
     <motion.div class="text-white bg-black/70 rounded-t-lg px-20 w-full"

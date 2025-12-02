@@ -9,7 +9,6 @@
 
     onMounted(async() => {
         await castStore.getCast();
-        console.log(castStore.people)
     })
 </script>
 

@@ -67,7 +67,6 @@ export const useCastStore = defineStore('castStore', () => {
     try{
       loadingStore.setLoading(true);
       const response = await api.get(`/person/${id}`);
-      console.log(response.data)
       return response.data;
     } catch(err){
       console.log(err);
